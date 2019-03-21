@@ -1,0 +1,95 @@
+.ant {
+  &-btn {
+    &.ant-btn-primary {
+      background-color: map-get($colors, blue ) !important;
+      color: map-get($colors, white ) !important;
+      padding: 1rem 3rem;
+      height: unset;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    &.ant-btn--with-icon {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+}
+.ant-menu {
+  .ant-menu-item {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: unset !important;
+    background-color: unset !important;
+    a {
+      color: map-get($colors, mainColor );
+      .icon {
+        svg * {
+          fill: map-get($colors, mainColor) !important;
+        }
+      }
+    }
+    &.ant-menu-item-selected {
+      background-color: #1d679d !important;
+      a {
+        color: map-get($colors, white );
+        .icon {
+          svg * {
+            fill: map-get($colors, white) !important;
+          }
+        }
+      }
+    }
+    &::after {
+      left: 0 !important;
+      right: unset;
+    }
+  }
+  .ant-menu-submenu {
+    &.ant-menu-submenu-open {
+      .ant-menu-submenu-title {
+        background-color: map-get($colors, grayThird);
+      }
+    }
+    .ant-menu-sub {
+      background-color: map-get($colors, grayThird);
+    }
+    .ant-menu-submenu-title {
+      margin: 0;
+      padding: 2rem !important;
+      height: unset;
+      line-height: 2rem;
+      color: map-get($colors, mainColor);
+      font-weight: 600;
+      .ant-menu-submenu-arrow {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+h1 {
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  font-weight: 800;
+}
+h2 {
+  font-size: 2.2rem;
+  line-height: 2.2rem;
+  font-weight: 700
+}
+h3 {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 600;
+  color: map-get($colors, mainColor);
+}
+h4 {
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 500;
+  color: map-get($colors, mainColor);
+}
+p {
+  margin: 0;
+}

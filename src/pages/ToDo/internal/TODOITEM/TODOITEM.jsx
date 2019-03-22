@@ -1,26 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { TODOITEMBLOCK } from './styled'
+import { TodoItemBlock } from './styled'
 import { styleguide } from '../../../../constants'
 
 const { colors } = styleguide
 
-const TODOITEM = ({ title, description, onClick, color }) => (
-  <TODOITEMBLOCK onClick={onClick} color={color}>
-    <TODOITEMBLOCK.Title>{ title }</TODOITEMBLOCK.Title>
-    <TODOITEMBLOCK.Description>{ description }</TODOITEMBLOCK.Description>
-  </TODOITEMBLOCK>
+const TodoItem = ({ title, description, onClick, color }) => (
+  <TodoItemBlock onClick={onClick} color={color}>
+    <TodoItemBlock.Title>{ title }</TodoItemBlock.Title>
+    <TodoItemBlock.Description>{ description }</TodoItemBlock.Description>
+  </TodoItemBlock>
 )
 
-TODOITEM.propTypes = {
+TodoItem.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
 }
 
-TODOITEM.defaultProps = {
+TodoItem.defaultProps = {
   title: 'Name',
   description: 'Description',
   color: colors.asideColor,
 }
 
-export default TODOITEM
+export default TodoItem

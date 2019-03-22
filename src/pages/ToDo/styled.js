@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
-const TODO = styled.div`
+const Todo = styled.div`
   margin: 0 -1rem;
   display: flex;
+  flex-direction: column;
 `
 
-TODO.List = styled.ul`
+Todo.List = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
@@ -14,7 +15,7 @@ TODO.List = styled.ul`
   flex-direction: column;
   border-right: .1rem solid gray
 `
-TODO.Item = styled.li`
+Todo.Item = styled.li`
   display: flex;
   padding: 1rem;
   cursor: pointer;
@@ -22,7 +23,13 @@ TODO.Item = styled.li`
   max-width: 20rem;
   flex-direction: column;
 `
-
+const AddButton = styled.button`
+  max-width: 10rem;
+  background-color: green;
+  border-radius: 3rem;
+  outline: none;
+  `
 export {
-  TODO
+  Todo,
+  AddButton
 }

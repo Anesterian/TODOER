@@ -1,5 +1,5 @@
-import TODOITEM from './TODOITEM'
+import TodoItem from './TODOITEM'
 
 export {
-  TODOITEM
+  TodoItem
 }

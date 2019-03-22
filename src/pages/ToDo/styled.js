@@ -24,5 +24,5 @@ TODO.Item = styled.li`
 `
 
 export {
-  SkillBox
+  TODO
 }

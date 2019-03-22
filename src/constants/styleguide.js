@@ -15,7 +15,8 @@ const colors = {
   white: '#fff',
   headerColor: '#374355',
   asideColor: '#3d4d65',
-  mainBgColor: '#212a34'
+  mainBgColor: '#212a34',
+  green: '#006400'
 }
 
 export default {

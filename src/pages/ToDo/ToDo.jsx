@@ -10,15 +10,24 @@ const ToDo = () => {
   const [isChecked, setChecked] = useState(false)
   const [elements, setElements] = useState([])
   const [activeItemId, setActiveItem] = useState(null)
-  const [elemTitle, setElemTitle] = useState(null)
+  const [elemTitle, setElemTitle] = useState()
   const addElement = () => {
     const newElement = {
       id: {index},
-      title: 'second todo',
+      title: titleofelement,
       description: 'second todo text'
     }
     setElements([...elements, newElement])
     index++
+  }
+  let titleofelement;
+  const updateInputValue = (event) => {
+
+    if(!elemTitle){
+      titleofelement = ""
+    } else {
+      titleofelement = elemTitle
+    }
   }
   const activeItem = elements.find(i => i.id === activeItemId)
 
@@ -34,8 +43,8 @@ const ToDo = () => {
               onClick={() => setActiveItem(item.id)}
               color={ item===activeItem ? colors.green : colors.blue}
             />
+          <input value = {titleofelement} name = "input" onChange = {updateInputValue}/>
           </Todo.Item>
-          <input value = {item.description} onChange = {}
           )
         }
       </Todo.List>

@@ -5,8 +5,8 @@ import { styleguide } from '../../../../constants'
 
 const { colors } = styleguide
 
-const TodoItem = ({ title, description, onClick, color }) => (
-  <TodoItemBlock onClick={onClick} color={color}>
+const TodoItem = ({ title, description, color, checked,...rest }) => (
+  <TodoItemBlock color={color} checked={checked} {...rest}>
     <TodoItemBlock.Title>{ title }</TodoItemBlock.Title>
     <TodoItemBlock.Description>{ description }</TodoItemBlock.Description>
   </TodoItemBlock>
@@ -15,12 +15,14 @@ const TodoItem = ({ title, description, onClick, color }) => (
 TodoItem.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
+  checked: PropTypes.bool,
 }
 
 TodoItem.defaultProps = {
   title: 'Name',
   description: 'Description',
   color: colors.asideColor,
+  checked: false
 }
 
 export default TodoItem

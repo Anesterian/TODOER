@@ -5,24 +5,18 @@ import { styleguide } from '../../../../constants'
 
 const { colors } = styleguide
 
-const TodoItem = ({ title, description, color, checked,...rest }) => (
-  <TodoItemBlock color={color} checked={checked} {...rest}>
-    <TodoItemBlock.Title>{ title }</TodoItemBlock.Title>
-    <TodoItemBlock.Description>{ description }</TodoItemBlock.Description>
-  </TodoItemBlock>
+const TodoItem = ({ todos, deleteTodo }) => (
+  <div>
+    {todos.map((todo, index) => (
+    <TodoItemBlock key={index.toString()}>
+      <input type="checkbox" tabIndex={-1} />
+      <TodoItemBlock.Title>{ todo }</TodoItemBlock.Title>
+      <button aria-label="Delete" onClick={() => {
+          deleteTodo(index)
+        }}>Delete</button>
+    </TodoItemBlock>
+    ))}
+  </div>
 )
-
-TodoItem.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  checked: PropTypes.bool,
-}
-
-TodoItem.defaultProps = {
-  title: 'Name',
-  description: 'Description',
-  color: colors.asideColor,
-  checked: false
-}
 
 export default TodoItem

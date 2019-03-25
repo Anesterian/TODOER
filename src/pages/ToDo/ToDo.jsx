@@ -1,50 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { styleguide } from '../../constants'
 import { Todo, AddButton } from './styled'
-import { TodoItem } from './internal'
+import { TodoItem, TodoForm } from './internal'
+import useTodoState from './useTodoState'
 
 
 const { colors } = styleguide
-var index = 0
 const ToDo = () => {
-  const [isChecked, setChecked] = useState(false)
-  const [elements, setElements] = useState([])
-  const [elemTitle, setElemTitle] = useState('')
-  const [elemDesc, setElemDesc] = useState('')
-  const addElement = () => {
-    const newElement = {
-      id: {index},
-      title: elemTitle,
-      description: elemDesc,
-    }
-    setElements([...elements, newElement])
-    index++
-  }
-  const handleInputChanges = (event) =>{
-    setElemTitle(event.target.value)
-  }
+  const {todos, addTodo, deleteTodo} = useTodoState([])
   return(
-    <Todo>
-      { elements.length == 0 ? <h1>No Todo items here. Please add.</h1> :
-      <Todo.List>
-        {elements.map((item, i) =>
-          <Todo.Item key={i}>
-            <TodoItem
-              key={item.id}
-              title={item.title}
-              description={item.description}
-              checked={item.checked}
-              onClick={() => item.checked = !item.checked}
-              color={ item.checked ? colors.green : colors.blue}
-            />
-          <input name="title" type="text" value={elemTitle} onChange={handleInputChanges}/>
-          </Todo.Item>
-          )
-        }
-      </Todo.List>
-    }
-      <AddButton onClick={addElement}>Add</AddButton>
-    </Todo>
+    <div>
+      <TodoForm
+        saveTodo={todoText => {
+          const trimmedText = todoText.trim()
+          if(trimmedText.length > 0){
+            addTodo(trimmedText)
+          }
+        }}
+        />
+      <TodoItem todos={todos} deleteTodo={deleteTodo} />
+    </div>
   )
 }
 

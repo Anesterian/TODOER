@@ -16,10 +16,6 @@ const TodoItemBlock = styled.div`
 TodoItemBlock.Title = styled.h3`
   text-transform: uppercase;
 `
-TodoItemBlock.Description = styled.p`
-  font-weight: 400;
-  font-size: 1.2rem;
-`
 export {
   TodoItemBlock
 }

@@ -11,9 +11,9 @@ const TodoItem = ({ todos, deleteTodo }) => (
     <TodoItemBlock key={index.toString()}>
       <input type="checkbox" tabIndex={-1} />
       <TodoItemBlock.Title>{ todo }</TodoItemBlock.Title>
-      <button aria-label="Delete" onClick={() => {
+      <TodoItemBlock.Button aria-label="Delete" onClick={() => {
           deleteTodo(index)
-        }}>Delete</button>
+        }}>Delete</TodoItemBlock.Button>
     </TodoItemBlock>
     ))}
   </div>

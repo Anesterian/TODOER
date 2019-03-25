@@ -15,6 +15,12 @@ const TodoItemBlock = styled.div`
 
 TodoItemBlock.Title = styled.h3`
   text-transform: uppercase;
+  text-align: center;
+`
+TodoItemBlock.Button = styled.button`
+  text-transform: uppercase;
+  color: black;
+  border-radius: 2rem;
 `
 export {
   TodoItemBlock

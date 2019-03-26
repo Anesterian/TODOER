@@ -18,10 +18,10 @@ function App () {
     <Fragment>
       <Router history={history}>
         <Switch>
-          <PrivateRoute exact path='/' component={WelcomePage} />
+          <PrivateRoute exact path='/' component={LoginPage} />
           <PrivateRoute path='/dashboard' component={Dashboard} />
           <PrivateRoute path='/todo' component={ToDo} />
-          <PrivateRoute path='/login' component={LoginPage} />
+          <PrivateRoute path='/welcome' component={WelcomePage} />
           <Route path='*' render={() => <div>404</div>} />
         </Switch>
       </Router>

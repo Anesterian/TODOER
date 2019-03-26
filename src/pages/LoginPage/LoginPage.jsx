@@ -13,12 +13,16 @@ const LoginPage = () => {
   const handleClick = (event) => {
     setUsername(event.target.username)
   }
+  const openInNewTab = (url) => {
+    var win = window.open(url, '_blank')
+    win.focus()
+  }
 return(
   <Login>
     <Login.Text>Login</Login.Text>
     <Login.Field placeholder="Enter your username" onChange={event => setUsername(event.target.value)}/>
     <Login.Field placeholder="Enter your password" onChange={event => setPassword(event.target.value)}/>
-    <Login.Field type="submit" label="Submit" value="Submit" disabled={!(username.length && password.length)} onClick={() => {console.log(username, password)}}/>
+    <Login.Field type="submit" label="Submit" value="Submit" disabled={!(username.length && password.length)} onClick={() => {openInNewTab('/dashboard')}}/>
   </Login>
   )
 }

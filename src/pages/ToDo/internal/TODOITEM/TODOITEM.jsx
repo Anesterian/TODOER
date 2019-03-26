@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import { TodoItemBlock } from './styled'
 import { styleguide } from '../../../../constants'
@@ -9,7 +9,7 @@ const TodoItem = ({ todos, deleteTodo }) => (
   <div>
     {todos.map((todo, index) => (
     <TodoItemBlock key={index.toString()}>
-      <input type="checkbox" tabIndex={-1} />
+      <input type="checkbox" id="check" tabIndex={-1} />
       <TodoItemBlock.Title>{ todo }</TodoItemBlock.Title>
       <TodoItemBlock.Button aria-label="Delete" onClick={() => {
           deleteTodo(index)
@@ -18,5 +18,4 @@ const TodoItem = ({ todos, deleteTodo }) => (
     ))}
   </div>
 )
-
 export default TodoItem

@@ -16,6 +16,7 @@ const TodoItemBlock = styled.div`
 TodoItemBlock.Title = styled.h3`
   text-transform: uppercase;
   text-align: center;
+  word-wrap: break-word;
 `
 TodoItemBlock.Button = styled.button`
   text-transform: uppercase;

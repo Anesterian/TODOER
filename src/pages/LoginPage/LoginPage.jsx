@@ -14,8 +14,7 @@ const LoginPage = () => {
     setUsername(event.target.username)
   }
   const openInNewTab = (url) => {
-    var win = window.open(url, '_blank')
-    win.focus()
+    document.location.href = url
   }
 return(
   <Login>

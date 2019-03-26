@@ -1,26 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import { TodoItemBlock } from './styled'
 import { styleguide } from '../../../../constants'
 
 const { colors } = styleguide
 
-const TodoItem = ({ title, description, onClick, color }) => (
-  <TodoItemBlock onClick={onClick} color={color}>
-    <TodoItemBlock.Title>{ title }</TodoItemBlock.Title>
-    <TodoItemBlock.Description>{ description }</TodoItemBlock.Description>
-  </TodoItemBlock>
+const TodoItem = ({ todos, deleteTodo }) => (
+  <div>
+    {todos.map((todo, index) => (
+    <TodoItemBlock key={index.toString()}>
+      <input type="checkbox" id="check" tabIndex={-1} />
+      <TodoItemBlock.Title>{ todo }</TodoItemBlock.Title>
+      <TodoItemBlock.Button aria-label="Delete" onClick={() => {
+          deleteTodo(index)
+        }}>Delete</TodoItemBlock.Button>
+    </TodoItemBlock>
+    ))}
+  </div>
 )
-
-TodoItem.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-}
-
-TodoItem.defaultProps = {
-  title: 'Name',
-  description: 'Description',
-  color: colors.asideColor,
-}
-
 export default TodoItem

@@ -19,9 +19,14 @@ const LoginPage = () => {
 return(
   <Login>
     <Login.Text>Login</Login.Text>
-    <Login.Field placeholder="Enter your username" onChange={event => setUsername(event.target.value)}/>
-    <Login.Field placeholder="Enter your password" onChange={event => setPassword(event.target.value)}/>
-    <Login.Field type="submit" label="Submit" value="Submit" disabled={!(username.length && password.length)} onClick={() => {openInNewTab('/welcome')}}/>
+    <Login.Field placeholder="Enter your username"
+      onChange={event => setUsername(event.target.value)}/>
+    <Login.Field placeholder="Enter your password"
+      onChange={event => setPassword(event.target.value)}/>
+    <Login.Field type="submit" label="Submit" value="Submit"
+      disabled={!(username.length && password.length)}
+      onClick={() => {username === 'admin' && password === '1'
+        ? openInNewTab('/welcome') : alert('Access denied')}}/>
   </Login>
   )
 }

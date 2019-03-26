@@ -11,6 +11,6 @@ return(
     <Login.Field placeholder="Enter your password" onChange={(event, newValue) => setPassword(newValue)}/>
     <Login.Field type="submit" label="Submit" onClick={(event) => this.handleClick(event)}/>
   </Login>
-)
+  )
 }
 export default LoginPage

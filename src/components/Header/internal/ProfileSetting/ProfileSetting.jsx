@@ -21,6 +21,10 @@ const ProfileSetting = () => {
 
   const signOut = () => {
     history.push('./')
+    setimageUrl('')
+    setprofileName('')
+    setprofilePosition('')
+    setOpen(false)
   }
 
   const [picture, setPicture] = useState('')
@@ -46,13 +50,16 @@ const ProfileSetting = () => {
 
   return (
     <Profile ref={node}>
-      { !imageUrl &&
+      { (imageUrl && profileName.length && profilePosition.length) ?
+        ''
+      :
       <Profile.InputBlock>
         <Profile.Input type="file" onChange={(e) => handleImageChange(e)}/>
         <Profile.Input placeholder="Enter your profile name" onChange={event => setprofileName(event.target.value.trim())} />
         <Profile.Input placeholder="Enter your profile rank" onChange={event => setprofilePosition(event.target.value.trim())} />
       </Profile.InputBlock>
       }
+      { (imageUrl && profileName.length && profilePosition.length) ?
       <Profile.Visiblie onClick={(ev) => handleInputProfile(ev)}>
         <Profile.Logo photo={imageUrl} />
         <Profile.AboutBox>
@@ -60,6 +67,9 @@ const ProfileSetting = () => {
           <Profile.Position>{profilePosition}</Profile.Position>
         </Profile.AboutBox>
       </Profile.Visiblie>
+        :
+        ''
+    }
       { isOpen &&
         <Profile.SettingsBox>
           <Profile.SettingsItem onClick={signOut}>Logout</Profile.SettingsItem>

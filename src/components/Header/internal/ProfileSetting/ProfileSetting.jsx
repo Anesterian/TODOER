@@ -3,6 +3,7 @@ import { Profile } from './styled'
 import history from '../../../../history'
 
 
+
 const ProfileSetting = () => {
   const node = useRef()
   const [isOpen, setOpen] = useState(false)
@@ -26,9 +27,14 @@ const ProfileSetting = () => {
     setprofilePosition('')
     setOpen(false)
   }
-
+  const initialUrl = () => window.localStorage.getItem('imageUrl')
+  const initialName = () => window.localStorage.getItem('profileName')
+  const initialPosition = () => window.localStorage.getItem('profilePosition')
   const [picture, setPicture] = useState('')
-  const [imageUrl, setimageUrl] = useState('')
+  const [imageUrl, setimageUrl] = useState(initialUrl)
+  useEffect(() => {
+    window.localStorage.setItem('imageUrl', imageUrl)
+  }, [imageUrl])
 
   const handleImageChange = (e) => {
     e.preventDefault()
@@ -42,19 +48,25 @@ const ProfileSetting = () => {
     reader.readAsDataURL(file)
   }
   const handleInputProfile = (ev) =>{
-    (profileName.length && profilePosition.length && imageUrl) ?
+    (profileName && profilePosition && imageUrl) ?
       setOpen(!isOpen) : ''
   }
-  const [profileName, setprofileName] = useState('')
-  const [profilePosition, setprofilePosition] = useState('')
+  const [profileName, setprofileName] = useState(initialName)
+  useEffect(() => {
+    window.localStorage.setItem('profileName', profileName)
+  }, [profileName])
+  const [profilePosition, setprofilePosition] = useState(initialPosition)
+  useEffect(() => {
+    window.localStorage.setItem('profilePosition', profilePosition)
+  }, [profilePosition])
 
   return (
     <Profile ref={node}>
-      { (imageUrl && profileName.length && profilePosition.length) ?
+      { (imageUrl && profileName && profilePosition) ?
         ''
       :
       <Profile.InputBlock>
-        { (profileName.length && profilePosition.length) ?
+        { (profileName && profilePosition) ?
           <Profile.Input type="file" onChange={(e) => handleImageChange(e)}/>
         :
         ''
@@ -65,7 +77,7 @@ const ProfileSetting = () => {
           onChange={event => setprofilePosition(event.target.value.trim())} />
       </Profile.InputBlock>
       }
-      { (imageUrl && profileName.length && profilePosition.length) ?
+      { (imageUrl && profileName && profilePosition) ?
       <Profile.Visiblie onClick={(ev) => handleInputProfile(ev)}>
         <Profile.Logo photo={imageUrl} />
         <Profile.AboutBox>

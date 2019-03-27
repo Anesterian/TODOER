@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {Login} from './styled'
+import history from '../../history'
 
 const LoginPage = () => {
   const [username, setUsername] = useState('')
@@ -14,7 +15,7 @@ const LoginPage = () => {
     setUsername(event.target.username)
   }
   const openInNewTab = (url) => {
-    document.location.href = url
+    history.push(url)
   }
 return(
   <Login>

@@ -1,21 +1,20 @@
 import styled from 'styled-components'
 
-const Shop = styled.div`
+const Shops = styled.div`
   margin: 0 -1rem;
   display: flex;
   flex-direction: column;
 `
 
-Shop.List = styled.ul`
+Shops.List = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  border-right: .1rem solid gray
 `
-Shop.Item = styled.li`
+Shops.Item = styled.li`
   display: flex;
   padding: 1rem;
   cursor: pointer;
@@ -24,5 +23,5 @@ Shop.Item = styled.li`
   flex-direction: column;
 `
 export {
-  Shop
+  Shops
 }

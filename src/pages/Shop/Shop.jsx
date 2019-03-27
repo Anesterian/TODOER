@@ -1,4 +1,6 @@
 import React from 'react'
+import {Shops} from './styled'
+import {Shopitem} from './internal'
 
 const tradeThings = [
   {
@@ -40,20 +42,20 @@ const tradeThings = [
 ]
 const Shop = () => {
   return(
-    <Shop>
-      <Shop.List>
+    <Shops>
+      <Shops.List>
         {tradeThings.map(item =>
-        <Shop.Item key={item.id}>
+        <Shops.Item key={item.id}>
           <Shopitem
             title={item.title}
             description={item.description}
             cost={item.cost}
             />
-        </Shop.Item>
+        </Shops.Item>
       )
     }
-      </Shop.List>
-    </Shop>
+      </Shops.List>
+    </Shops>
   )
 }
 

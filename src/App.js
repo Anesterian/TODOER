@@ -10,7 +10,8 @@ import {
   WelcomePage,
   Dashboard,
   ToDo,
-  LoginPage
+  LoginPage,
+  Shop
 } from './pages'
 
 function App () {
@@ -22,6 +23,7 @@ function App () {
           <PrivateRoute path='/dashboard' component={Dashboard} />
           <PrivateRoute path='/todo' component={ToDo} />
           <PrivateRoute path='/welcome' component={WelcomePage} />
+          <PrivateRoute path='/shop' component={Shop} />
           <Route path='*' render={() => <div>404</div>} />
         </Switch>
       </Router>

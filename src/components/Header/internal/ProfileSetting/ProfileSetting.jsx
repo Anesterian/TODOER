@@ -37,17 +37,27 @@ const ProfileSetting = () => {
     }
     reader.readAsDataURL(file)
   }
+  const handleInputProfile = (ev) =>{
+    (profileName.length && profilePosition.length && imageUrl) ?
+      setOpen(!isOpen) : ''
+  }
+  const [profileName, setprofileName] = useState('')
+  const [profilePosition, setprofilePosition] = useState('')
 
   return (
     <Profile ref={node}>
       { !imageUrl &&
-      <input type="file" onChange={(e) => handleImageChange(e)}/>
+      <Profile.InputBlock>
+        <Profile.Input type="file" onChange={(e) => handleImageChange(e)}/>
+        <Profile.Input placeholder="Enter your profile name" onChange={event => setprofileName(event.target.value.trim())} />
+        <Profile.Input placeholder="Enter your profile rank" onChange={event => setprofilePosition(event.target.value.trim())} />
+      </Profile.InputBlock>
       }
-      <Profile.Visiblie onClick={() => { setOpen(!isOpen) }}>
+      <Profile.Visiblie onClick={(ev) => handleInputProfile(ev)}>
         <Profile.Logo photo={imageUrl} />
         <Profile.AboutBox>
-          <Profile.Name>Test Name</Profile.Name>
-          <Profile.Position>Position</Profile.Position>
+          <Profile.Name>{profileName}</Profile.Name>
+          <Profile.Position>{profilePosition}</Profile.Position>
         </Profile.AboutBox>
       </Profile.Visiblie>
       { isOpen &&

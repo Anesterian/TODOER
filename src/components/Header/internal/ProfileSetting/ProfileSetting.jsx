@@ -40,7 +40,9 @@ const ProfileSetting = () => {
 
   return (
     <Profile ref={node}>
+      { !imageUrl &&
       <input type="file" onChange={(e) => handleImageChange(e)}/>
+      }
       <Profile.Visiblie onClick={() => { setOpen(!isOpen) }}>
         <Profile.Logo photo={imageUrl} />
         <Profile.AboutBox>

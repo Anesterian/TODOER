@@ -31,7 +31,7 @@ const Navigation = () => (
           key='3'
           url='/shop'
           icon={dashboard}
-          heading='Shop'
+          heading='SHOP'
         />
       </Nav.SubMenu>
     </Nav.Menu>

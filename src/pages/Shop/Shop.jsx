@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Shops} from './styled'
 import { Shopitem } from './internal'
 
@@ -40,7 +40,9 @@ const tradeThings = [
     price: 500
   },
 ]
+
 const Shop = () => {
+  const [inBasket, setinBasket] = useState()
   return(
     <Shops>
       <Shops.List>
@@ -50,7 +52,7 @@ const Shop = () => {
             title={item.title}
             description={item.description}
             price={item.price}
-            onClick = {console.log('1')}
+            onClick = {setinBasket}
             />
         </Shops.Item>
       )

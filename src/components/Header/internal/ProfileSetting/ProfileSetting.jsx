@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Profile } from './styled'
 import history from '../../../../history'
 
-const me = 'https://pp.userapi.com/IVnQMdyL3W6r_pGcEKsjk0frpzsjj0mmRjqo5w/i13cmyUVhuI.jpg'
 
 const ProfileSetting = () => {
   const node = useRef()
@@ -22,17 +21,61 @@ const ProfileSetting = () => {
 
   const signOut = () => {
     history.push('./')
+    setimageUrl('')
+    setprofileName('')
+    setprofilePosition('')
+    setOpen(false)
   }
+
+  const [picture, setPicture] = useState('')
+  const [imageUrl, setimageUrl] = useState('')
+
+  const handleImageChange = (e) => {
+    e.preventDefault()
+    let reader = new FileReader()
+    let file =  e.target.files[0]
+
+    reader.onloadend = () => {
+      setPicture(file)
+      setimageUrl(reader.result)
+    }
+    reader.readAsDataURL(file)
+  }
+  const handleInputProfile = (ev) =>{
+    (profileName.length && profilePosition.length && imageUrl) ?
+      setOpen(!isOpen) : ''
+  }
+  const [profileName, setprofileName] = useState('')
+  const [profilePosition, setprofilePosition] = useState('')
 
   return (
     <Profile ref={node}>
-      <Profile.Visiblie onClick={() => { setOpen(!isOpen) }}>
-        <Profile.Logo photo={me} />
+      { (imageUrl && profileName.length && profilePosition.length) ?
+        ''
+      :
+      <Profile.InputBlock>
+        { (profileName.length && profilePosition.length) ?
+          <Profile.Input type="file" onChange={(e) => handleImageChange(e)}/>
+        :
+        ''
+        }
+        <Profile.Input placeholder="Enter your profile name"
+          onChange={event => setprofileName(event.target.value.trim())} />
+        <Profile.Input placeholder="Enter your profile rank"
+          onChange={event => setprofilePosition(event.target.value.trim())} />
+      </Profile.InputBlock>
+      }
+      { (imageUrl && profileName.length && profilePosition.length) ?
+      <Profile.Visiblie onClick={(ev) => handleInputProfile(ev)}>
+        <Profile.Logo photo={imageUrl} />
         <Profile.AboutBox>
-          <Profile.Name>Test Name</Profile.Name>
-          <Profile.Position>Position</Profile.Position>
+          <Profile.Name>{profileName}</Profile.Name>
+          <Profile.Position>{profilePosition}</Profile.Position>
         </Profile.AboutBox>
       </Profile.Visiblie>
+        :
+        ''
+    }
       { isOpen &&
         <Profile.SettingsBox>
           <Profile.SettingsItem onClick={signOut}>Logout</Profile.SettingsItem>

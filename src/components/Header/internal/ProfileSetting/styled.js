@@ -6,6 +6,17 @@ const Profile = styled.div`
   height: 100%;
   position: relative;
 `
+Profile.InputBlock = styled.div`
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+`
+Profile.Input = styled.input`
+  max-width: 100%;
+  height: 3.5rem;
+`
+
 Profile.Visiblie = styled.div`
   height: 100%;
   display: flex;

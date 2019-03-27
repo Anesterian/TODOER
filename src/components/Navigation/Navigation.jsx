@@ -7,6 +7,7 @@ import {
 
 const Navigation = () => (
   <Nav>
+      {location.pathname != '/' ?
     <Nav.Menu
       mode='inline'
     >
@@ -28,6 +29,7 @@ const Navigation = () => (
         />
       </Nav.SubMenu>
     </Nav.Menu>
+      : ''}
   </Nav>
 )
 

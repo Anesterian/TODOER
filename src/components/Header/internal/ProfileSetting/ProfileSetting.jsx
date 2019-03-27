@@ -55,8 +55,10 @@ const ProfileSetting = () => {
       :
       <Profile.InputBlock>
         <Profile.Input type="file" onChange={(e) => handleImageChange(e)}/>
-        <Profile.Input placeholder="Enter your profile name" onChange={event => setprofileName(event.target.value.trim())} />
-        <Profile.Input placeholder="Enter your profile rank" onChange={event => setprofilePosition(event.target.value.trim())} />
+        <Profile.Input placeholder="Enter your profile name"
+          onChange={event => setprofileName(event.target.value.trim())} />
+        <Profile.Input placeholder="Enter your profile rank"
+          onChange={event => setprofilePosition(event.target.value.trim())} />
       </Profile.InputBlock>
       }
       { (imageUrl && profileName.length && profilePosition.length) ?

@@ -34,7 +34,7 @@ Profile.SettingsBox = styled.ul`
   padding: 0;
   list-style: none;
   position: absolute;
-  top: 100%;
+  top: 144%;
   left: 0;
   width: 100%;
   background-color: ${colors.asideColor};

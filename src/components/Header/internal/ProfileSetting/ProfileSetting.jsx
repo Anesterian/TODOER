@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Profile } from './styled'
 import history from '../../../../history'
 
-const me = 'https://pp.userapi.com/IVnQMdyL3W6r_pGcEKsjk0frpzsjj0mmRjqo5w/i13cmyUVhuI.jpg'
 
 const ProfileSetting = () => {
   const node = useRef()
@@ -24,10 +23,26 @@ const ProfileSetting = () => {
     history.push('./')
   }
 
+  const [picture, setPicture] = useState('')
+  const [imageUrl, setimageUrl] = useState('')
+
+  const handleImageChange = (e) => {
+    e.preventDefault()
+    let reader = new FileReader()
+    let file =  e.target.files[0]
+
+    reader.onloadend = () => {
+      setPicture(file)
+      setimageUrl(reader.result)
+    }
+    reader.readAsDataURL(file)
+  }
+
   return (
     <Profile ref={node}>
+      <input type="file" onChange={(e) => handleImageChange(e)}/>
       <Profile.Visiblie onClick={() => { setOpen(!isOpen) }}>
-        <Profile.Logo photo={me} />
+        <Profile.Logo photo={imageUrl} />
         <Profile.AboutBox>
           <Profile.Name>Test Name</Profile.Name>
           <Profile.Position>Position</Profile.Position>

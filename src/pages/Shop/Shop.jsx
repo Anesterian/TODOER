@@ -46,8 +46,10 @@ const Shop = () => {
   useEffect(() => {
     window.localStorage.setItem('inBasket', JSON.stringify(inBasket))
   }, [inBasket])
-  var cart = JSON.parse(window.localStorage.getItem('inBasket'))
-  window.localStorage.setItem('cart', JSON.stringify(cart))
+  var cart = []
+  inBasket.length > 0 ?
+  (cart = JSON.parse(window.localStorage.getItem('inBasket')),
+  window.localStorage.setItem('cart', JSON.stringify(cart))) : ''
   return(
     <Shops>
       <Shops.List>
@@ -65,7 +67,7 @@ const Shop = () => {
     }
     {console.log(cart)}
     <ul>
-      {cart.length > 2 ? cart.map((shopitem, i) =>
+      {cart.length > 0 ? cart.map((shopitem, i) =>
       <li key={i}>{shopitem}</li>)
         : ''}
     </ul>

@@ -67,8 +67,11 @@ const Shop = () => {
       )
     }
     <ul>
+      {console.log(storeditems)}
       {storeditems.length > 2 ? storeditems.map((shopitem, i) =>
-      <li key={i}>{shopitem}</li>) : ''}
+      i!=0 ?
+      <li key={i}>{shopitem}</li> : '') 
+        : ''}
     </ul>
       </Shops.List>
     </Shops>

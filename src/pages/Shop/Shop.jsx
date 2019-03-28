@@ -42,6 +42,11 @@ const tradeThings = [
 ]
 
 const Shop = () => {
+  const onClicker = (id, price) => {
+    setinBasket([...inBasket , id])
+    setitemPrice([...itemPrice, price])
+  }
+  const [itemPrice, setitemPrice] = useState([])
   const initialBasket = () => JSON.parse(window.localStorage.getItem('inBasket'))
   const [inBasket, setinBasket] = useState(initialBasket)
   useEffect(() => {
@@ -61,7 +66,7 @@ const Shop = () => {
             title={item.title}
             description={item.description}
             price={item.price}
-            onClick = {() => setinBasket([...inBasket ,item.id])}
+            onClick = {() => onClicker(item.id, item.price)}
             />
         </Shops.Item>
       )

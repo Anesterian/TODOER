@@ -42,7 +42,7 @@ const tradeThings = [
 ]
 
 const Shop = () => {
-  const [inBasket, setinBasket] = useState()
+  const [inBasket, setinBasket] = useState(initialValue)
   const initialValue = () => window.localStorage.getItem('inBasket')
   const [b, setb] = useState([])
   useEffect(() => {

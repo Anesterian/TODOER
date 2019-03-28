@@ -46,7 +46,7 @@ const Shop = () => {
   useEffect(() => {
     window.localStorage.setItem('inBasket', JSON.stringify(inBasket))
   }, [inBasket])
-var cart = JSON.parse(localStorage.getItem('inBasket'))
+var cart = JSON.parse(window.localStorage.getItem('inBasket')) || []
   return(
     <Shops>
       <Shops.List>

@@ -42,7 +42,8 @@ const tradeThings = [
 ]
 
 const Shop = () => {
-  const [inBasket, setinBasket] = useState([])
+  const initialBasket = () => JSON.parse(window.localStorage.getItem('inBasket'))
+  const [inBasket, setinBasket] = useState(initialBasket)
   useEffect(() => {
     window.localStorage.setItem('inBasket', JSON.stringify(inBasket))
   }, [inBasket])

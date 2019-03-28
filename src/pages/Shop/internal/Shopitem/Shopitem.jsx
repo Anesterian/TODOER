@@ -2,8 +2,8 @@ import React from 'react'
 import {SItem} from './styled'
 import PropTypes from 'prop-types'
 
-const Shopitem = ({ title, description, price, onClick }) => (
-  <SItem onClick={onClick}>
+const Shopitem = ({ title, description, price, onClick, checked=false }) => (
+  <SItem checked={checked} onClick={onClick}>
     <SItem.Title>{ title }</SItem.Title>
     <SItem.Description>{ description }</SItem.Description>
     <SItem.Price>{ price }</SItem.Price>

@@ -42,17 +42,18 @@ const tradeThings = [
 ]
 
 const Shop = () => {
-  const [inBasket, setinBasket] = useState()
+  const [inBasket, setinBasket] = useState([])
   return(
     <Shops>
       <Shops.List>
         {tradeThings.map(item =>
         <Shops.Item key={item.id}>
           <Shopitem
+            checked={item.id === inBasket}
             title={item.title}
             description={item.description}
             price={item.price}
-            onClick = {setinBasket}
+            onClick = {() => setinBasket(item.id)}
             />
         </Shops.Item>
       )

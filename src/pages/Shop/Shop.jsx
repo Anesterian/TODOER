@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Shops} from './styled'
 import { Shopitem } from './internal'
 
@@ -42,7 +42,14 @@ const tradeThings = [
 ]
 
 const Shop = () => {
-  const [inBasket, setinBasket] = useState([])
+  const [inBasket, setinBasket] = useState(initialValue)
+  const initialValue = () => window.localStorage.getItem('inBasket')
+  useEffect(() => {
+    window.localStorage.setItem('inBasket', inBasket)
+    setb([...b, inBasket])
+    console.log(b)
+  }, [inBasket])
+  const [b, setb] = useState([])
   return(
     <Shops>
       <Shops.List>

@@ -42,15 +42,16 @@ const tradeThings = [
 ]
 
 const Shop = () => {
-  const [inBasket, setinBasket] = useState(initialValue)
+  const [inBasket, setinBasket] = useState()
   const initialValue = () => window.localStorage.getItem('inBasket')
+  const [b, setb] = useState([])
   useEffect(() => {
     window.localStorage.setItem('inBasket', inBasket)
     setb([...b, inBasket])
   }, [inBasket])
-  const [b, setb] = useState([])
-  localStorage.setItem("b", JSON.stringify(b))
-  var storeditems = JSON.parse(localStorage.getItem("b"))
+  useEffect(() => {
+    window.localStorage.setItem('b', JSON.stringify(b))
+  }, [b])
   return(
     <Shops>
       <Shops.List>
@@ -67,10 +68,10 @@ const Shop = () => {
       )
     }
     <ul>
-      {console.log(storeditems)}
-      {storeditems.length > 2 ? storeditems.map((shopitem, i) =>
+      {console.log(b)}
+      {b.length > 2 ? b.map((shopitem, i) =>
       i!=0 ?
-      <li key={i}>{shopitem}</li> : '') 
+      <li key={i}>{shopitem}</li> : '')
         : ''}
     </ul>
       </Shops.List>

@@ -40,6 +40,7 @@ const tradeThings = [
     price: 500
   },
 ]
+var cur
 
 const Shop = () => {
   const onClicker = (id, price) => {
@@ -56,6 +57,7 @@ const Shop = () => {
   inBasket.length > 0 ?
   (cart = JSON.parse(window.localStorage.getItem('inBasket')),
   window.localStorage.setItem('cart', JSON.stringify(cart))) : ''
+  cur = itemPrice.reduce((a, b) => a + b, 0)
   return(
     <Shops>
       <Shops.List>
@@ -76,6 +78,7 @@ const Shop = () => {
       {cart.length > 0 ? cart.map((shopitem, i) =>
       <li key={i}>{shopitem}</li>)
         : ''}
+        <li>Total amount:{cur}</li>
     </ul>
       </Shops.List>
     </Shops>

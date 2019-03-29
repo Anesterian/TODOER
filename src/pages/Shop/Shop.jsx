@@ -44,7 +44,7 @@ var cur
 
 const Shop = () => {
   const onClicker = (id, price) => {
-    setinBasket([...inBasket , id])
+    setinBasket([...inBasket , id]),
     setitemPrice([...itemPrice, price])
   }
   const [itemPrice, setitemPrice] = useState([])
@@ -54,9 +54,9 @@ const Shop = () => {
     window.localStorage.setItem('inBasket', JSON.stringify(inBasket))
   }, [inBasket])
   var cart = []
-  inBasket.length > 0 ?
+  inBasket != null ? (inBasket.length > 0 ?
   (cart = JSON.parse(window.localStorage.getItem('inBasket')),
-  window.localStorage.setItem('cart', JSON.stringify(cart))) : ''
+  window.localStorage.setItem('cart', JSON.stringify(cart))) : '') : ''
   cur = itemPrice.reduce((a, b) => a + b, 0)
   return(
     <Shops>

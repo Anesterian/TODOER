@@ -48,15 +48,8 @@ const Shop = () => {
     setitemPrice([...itemPrice, price])
   }
   const [itemPrice, setitemPrice] = useState([])
-  const initialBasket = () => JSON.parse(window.localStorage.getItem('inBasket'))
-  const [inBasket, setinBasket] = useState(initialBasket)
-  useEffect(() => {
-    window.localStorage.setItem('inBasket', JSON.stringify(inBasket))
-  }, [inBasket])
+  const [inBasket, setinBasket] = useState([])
   var cart = []
-  inBasket != null ? (inBasket.length > 0 ?
-  (cart = JSON.parse(window.localStorage.getItem('inBasket')),
-  window.localStorage.setItem('cart', JSON.stringify(cart))) : '') : ''
   cur = itemPrice.reduce((a, b) => a + b, 0)
   return(
     <Shops>
@@ -73,7 +66,7 @@ const Shop = () => {
         </Shops.Item>
       )
     }
-    {console.log(cart)}
+    {console.log(inBasket)}
     <ul>
       {cart.length > 0 ? cart.map((shopitem, i) =>
       <li key={i}>{shopitem}</li>)

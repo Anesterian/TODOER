@@ -46,8 +46,10 @@ var cur
 const Shop = () => {
   const onClicker = (id, price) => {
     setinBasket([...inBasket , id]),
-    setitemPrice([...itemPrice, price])
+    setitemPrice([...itemPrice, price]),
+    setCurrent(cur)
   }
+  const [current, setCurrent] = useState()
   const [itemPrice, setitemPrice] = useState([])
   const [inBasket, setinBasket] = useState([])
   cur = itemPrice.reduce((a, b) => a + b, 0)
@@ -69,7 +71,7 @@ const Shop = () => {
     }
     {console.log(inBasket)}
     <ul>
-      <li>Total amount:{cur}</li>
+      <li>Total amount:{current}</li>
       {inBasket.length > 0 ? inBasket.map((shopitem, i) =>
       <li key={i}>{shopitem}</li>)
         : ''}

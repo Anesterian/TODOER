@@ -49,7 +49,6 @@ const Shop = () => {
   }
   const [itemPrice, setitemPrice] = useState([])
   const [inBasket, setinBasket] = useState([])
-  var cart = []
   cur = itemPrice.reduce((a, b) => a + b, 0)
   return(
     <Shops>
@@ -68,7 +67,7 @@ const Shop = () => {
     }
     {console.log(inBasket)}
     <ul>
-      {cart.length > 0 ? cart.map((shopitem, i) =>
+      {inBasket.length > 0 ? inBasket.map((shopitem, i) =>
       <li key={i}>{shopitem}</li>)
         : ''}
         <li>Total amount:{cur}</li>

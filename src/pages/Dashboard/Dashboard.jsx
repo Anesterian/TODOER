@@ -3,9 +3,9 @@ import { Socials } from '../../components'
 
 const Dashboard = () => (
   <div>
-  <p>Dashboard</p>
-  <Socials/>
-    </div>
+    <p>Dashboard</p>
+    <Socials/>
+  </div>
 )
 
 export default Dashboard

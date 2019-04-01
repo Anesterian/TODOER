@@ -70,6 +70,7 @@ const Shop = () => {
       )
     }
     {console.log(inBasket)}
+    {console.log(current)}
     <ul>
       <li>Total amount:{current}</li>
       {inBasket.length > 0 ? inBasket.map((shopitem, i) =>

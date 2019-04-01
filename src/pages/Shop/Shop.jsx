@@ -67,16 +67,16 @@ const Shop = () => {
             onClick = {() => onClicker(item.id, item.price)}
             />
         </Shops.Item>
-      )
-    }
-    {console.log(inBasket)}
-    {console.log(current)}
-    <ul>
-      <li>Total amount:{cur}</li>
-      {inBasket.length > 0 ? inBasket.map((shopitem, i) =>
-      <li key={i}>{shopitem}</li>)
-        : ''}
-    </ul>
+          )
+        }
+        {console.log(inBasket)}
+        {console.log(current)}
+        <ul>
+          <li>Total amount:{cur}</li>
+          {inBasket.length > 0 ? inBasket.map((shopitem, i) =>
+          <li key={i}>{shopitem}</li>)
+            : ''}
+        </ul>
       </Shops.List>
     </Shops>
   )

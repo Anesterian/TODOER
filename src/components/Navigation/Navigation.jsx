@@ -27,6 +27,12 @@ const Navigation = () => (
           icon={dashboard}
           heading='TODO'
         />
+        <NavItem
+          key='3'
+          url='/shop'
+          icon={dashboard}
+          heading='SHOP'
+        />
       </Nav.SubMenu>
     </Nav.Menu>
       : ''}

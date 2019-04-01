@@ -5,5 +5,5 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
-  return {state : state.price}
+  return state
 }

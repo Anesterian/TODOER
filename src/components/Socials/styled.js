@@ -19,7 +19,8 @@ SocialsBlock.Item = styled.a`
   background-position: 50%;
   background-repeat: no-repeat;
   transition: all .2s ease;
-  background-color: black;
+  background-color: blue;
+  border: 0.1rem solid black;
 `
 
 export {

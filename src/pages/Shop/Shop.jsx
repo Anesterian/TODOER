@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Shops} from './styled'
 import { Shopitem } from './internal'
+import { Socials } from '../../components'
 
 const tradeThings = [
   {
@@ -52,6 +53,7 @@ const Shop = () => {
   cur = itemPrice.reduce((a, b) => a + b, 0)
   return(
     <Shops>
+      <Socials/>
       <Shops.List>
         {tradeThings.map(item =>
         <Shops.Item key={item.id}>

@@ -69,10 +69,10 @@ const Shop = () => {
     }
     {console.log(inBasket)}
     <ul>
+      <li>Total amount:{cur}</li>
       {inBasket.length > 0 ? inBasket.map((shopitem, i) =>
       <li key={i}>{shopitem}</li>)
         : ''}
-        <li>Total amount:{cur}</li>
     </ul>
       </Shops.List>
     </Shops>

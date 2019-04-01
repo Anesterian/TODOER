@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Profile } from './styled'
 import history from '../../../../history'
-import { store } from '../../../../store'
+import Shop from '../../../../pages'
 
 
 
